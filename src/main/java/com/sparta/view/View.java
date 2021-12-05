@@ -1,19 +1,10 @@
 package com.sparta.view;
-
-import com.sparta.model.BubbleSort;
-import com.sparta.model.QuickSort;
 import com.sparta.model.Sorter;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class View {
     private int listChoice = 0;
     private int sortChoice = 0;
-    public Sorter sorter;
-    public long startTime = 0;
-    public long endTime = 0;
 
     public void userInput() {
         Scanner scanner = new Scanner(System.in);
