@@ -28,3 +28,13 @@ java.util.InputMismatchException: null
 	at com.sparta.view.View.userInput(View.java:38) [classes/:?]
 	at com.sparta.controller.Main.createView(Main.java:96) [classes/:?]
 	at com.sparta.controller.Main.main(Main.java:26) [classes/:?]
+FILE [WARN ] 2021-12-06 05:55:22,371 main Java Sorting Application - User entered non-integer input causing error. 
+java.util.InputMismatchException: null
+	at java.util.Scanner.throwFor(Scanner.java:939) ~[?:?]
+	at java.util.Scanner.next(Scanner.java:1594) ~[?:?]
+	at java.util.Scanner.nextInt(Scanner.java:2258) ~[?:?]
+	at java.util.Scanner.nextInt(Scanner.java:2212) ~[?:?]
+	at com.sparta.view.View.userInput(View.java:20) [classes/:?]
+	at com.sparta.controller.Main.createView(Main.java:96) [classes/:?]
+	at com.sparta.controller.Main.main(Main.java:26) [classes/:?]
+FILE [WARN ] 2021-12-06 05:55:38,671 main Java Sorting Application - User entered a value lower than 0 or greater than 3.
