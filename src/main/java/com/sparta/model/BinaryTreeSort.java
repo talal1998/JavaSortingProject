@@ -51,9 +51,18 @@ public class BinaryTreeSort implements Sorter {
         }
     }
 
+    public void inOrderRec(Node root, ArrayList<Integer> arrayList) {
+        if (root != null) {
+            inOrderRec(root.left, arrayList);
+            arrayList.set(counter, root.key);
+            counter++;
+            inOrderRec(root.right, arrayList);
+        }
+    }
+
     public void treeInsert(ArrayList<Integer> arrayList) {
-        for (int i = 0; i < arrayList.size(); i++) {
-            arrayList.add(i);
+        for(int i = 0; i < arrayList.size(); i++) {
+            insert(arrayList.get(i));
         }
     }
 
@@ -64,9 +73,19 @@ public class BinaryTreeSort implements Sorter {
     }
 
     public int[] treeSort(int[] array) {
+        counter = 0;
+        root = null;
         treeInsert(array);
         inOrderRec(root, array);
         return array;
+    }
+
+    public ArrayList<Integer> treeSort(ArrayList<Integer> arrayList) {
+        counter = 0;
+        root = null;
+        treeInsert(arrayList);
+        inOrderRec(root, arrayList);
+        return arrayList;
     }
 
     @Override
