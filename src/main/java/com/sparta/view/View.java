@@ -1,6 +1,8 @@
 package com.sparta.view;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class View {
     private int listChoice = 0;
@@ -8,6 +10,7 @@ public class View {
     private boolean listChoiceValid = true;
     private boolean sortChoiceValid = true;
     private Scanner scanner = new Scanner(System.in);
+    private static Logger logger = LogManager.getLogger("Java Sorting Application");
 
 
     public void userInput() {
@@ -18,10 +21,12 @@ public class View {
                 if (getListChoice() > 0 && getListChoice() < 3) {
                     listChoiceValid = false;
                 } else {
+                    logger.warn("User entered a value lower than 0 or greater than 3.");
                     System.out.println("Invalid input. Please try again.");
                     listChoiceValid = true;
                 }
             } catch (InputMismatchException e) {
+                logger.warn("User entered non-integer input causing error. ", e);
                 System.out.println("Invalid input. Please try again.");
                 scanner.next();
             }
@@ -34,10 +39,12 @@ public class View {
                 if (getSortChoice() > 0 && getSortChoice() < 4) {
                     sortChoiceValid = false;
                 } else {
+                    logger.warn("User entered a value lower than 0 or greater than 4.");
                     System.out.println("Invalid input. Please try again.");
                     sortChoiceValid = true;
                 }
             } catch (InputMismatchException e) {
+                logger.warn("User entered non-integer input causing error. ", e);
                 System.out.println("Invalid input. Please try again.");
                 scanner.next();
             }
