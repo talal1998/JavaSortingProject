@@ -50,6 +50,7 @@ A pre-sorted array is compared with an unsorted array that has gone through the 
 ### Binary Tree Sort Implementation
 
 Creating the nested Node class:
+
 ![Node Class](Images/NestedNode.png)
 
 The implementation of Binary Tree Sort within the application for both Arrays and ArrayLists:
