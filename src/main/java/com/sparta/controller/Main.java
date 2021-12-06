@@ -11,6 +11,7 @@ import java.util.Random;
 
 public class Main {
     private static Sorter sorter;
+    private static View view;
     private static long startTime = 0;
     private static long endTime = 0;
     private static final int CHOICE_ONE = 1;
@@ -36,23 +37,19 @@ public class Main {
 
         if (sortChoice == CHOICE_ONE) {
             System.out.println("Bubble Sort Chosen");
-            startTime = System.nanoTime();
             sorter = new BubbleSort();
-            sorter.sort(array);
-            endTime = System.nanoTime();
         } else if (sortChoice == CHOICE_TWO) {
             System.out.println("Quick Sort chosen...");
-            startTime = System.nanoTime();
             sorter = new QuickSort();
-            sorter.sort(array);
-            endTime = System.nanoTime();
         } else if (sortChoice == CHOICE_THREE) {
             System.out.println("Binary Tree Sort chosen...");
-            startTime = System.nanoTime();
             sorter = new BinaryTreeSort();
-            sorter.sort(array);
-            endTime = System.nanoTime();
         }
+
+        startTime = System.nanoTime();
+        sorter.sort(array);
+        endTime = System.nanoTime();
+
         System.out.println("Sorted Array: " + Arrays.toString(array));
         System.out.println("Time taken: " +  (endTime - startTime) + " nano-seconds.");
     }
@@ -62,23 +59,19 @@ public class Main {
 
         if (sortChoice == CHOICE_ONE) {
             System.out.println("Bubble Sort Chosen");
-            startTime = System.nanoTime();
             sorter = new BubbleSort();
-            sorter.sort(arrayList);
-            endTime = System.nanoTime();
         } else if (sortChoice == CHOICE_TWO) {
             System.out.println("Quick Sort chosen...");
-            startTime = System.nanoTime();
             sorter = new QuickSort();
-            sorter.sort(arrayList);
-            endTime = System.nanoTime();
         } else if (sortChoice == CHOICE_THREE) {
             System.out.println("Binary Tree Sort chosen...");
-            startTime = System.nanoTime();
             sorter = new BinaryTreeSort();
-            sorter.sort(arrayList);
-            endTime = System.nanoTime();
         }
+
+        startTime = System.nanoTime();
+        sorter.sort(arrayList);
+        endTime = System.nanoTime();
+
         System.out.println("Sorted ArrayList: " + arrayList);
         System.out.println("Time taken: " +  (endTime - startTime) + " nano-seconds.");
 
@@ -103,7 +96,7 @@ public class Main {
     }
 
     private static void createView() {
-        View view = new View();
+        view = new View();
         view.userInput();
         listChoice = view.getListChoice();
         sortChoice = view.getSortChoice();
