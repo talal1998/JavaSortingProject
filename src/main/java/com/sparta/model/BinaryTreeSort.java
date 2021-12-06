@@ -19,7 +19,7 @@ public class BinaryTreeSort implements Sorter {
     int counter;
 
 
-    BinaryTreeSort() {
+    public BinaryTreeSort() {
         root = null;
     }
 
@@ -90,12 +90,12 @@ public class BinaryTreeSort implements Sorter {
 
     @Override
     public int[] sort(int[] array) {
-        return null;
+        return treeSort(array);
     }
 
     @Override
     public ArrayList<Integer> sort(ArrayList<Integer> arrayList) {
-        return null;
+        return treeSort(arrayList);
     }
 
 }

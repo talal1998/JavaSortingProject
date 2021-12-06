@@ -1,4 +1,5 @@
 package com.sparta.controller;
+import com.sparta.model.BinaryTreeSort;
 import com.sparta.model.BubbleSort;
 import com.sparta.model.QuickSort;
 import com.sparta.model.Sorter;
@@ -14,6 +15,7 @@ public class Main {
     public static long endTime = 0;
     public static final int CHOICE_ONE = 1;
     public static final int CHOICE_TWO = 2;
+    public static final int CHOICE_THREE = 3;
 
     public static void main(String[] args) {
         int[] array = randomArray();
@@ -46,6 +48,12 @@ public class Main {
             sorter = new QuickSort();
             sorter.sort(array);
             endTime = System.nanoTime();
+        } else if (sortChoice == CHOICE_THREE) {
+            System.out.println("Binary Tree Sort chosen...");
+            startTime = System.nanoTime();
+            sorter = new BinaryTreeSort();
+            sorter.sort(array);
+            endTime = System.nanoTime();
         }
         System.out.println("Sorted Array: " + Arrays.toString(array));
         System.out.println("Time taken: " +  (endTime - startTime) + " nano-seconds.");
@@ -64,6 +72,12 @@ public class Main {
             System.out.println("Quick Sort chosen...");
             startTime = System.nanoTime();
             sorter = new QuickSort();
+            sorter.sort(arrayList);
+            endTime = System.nanoTime();
+        } else if (sortChoice == CHOICE_THREE) {
+            System.out.println("Binary Tree Sort chosen...");
+            startTime = System.nanoTime();
+            sorter = new BinaryTreeSort();
             sorter.sort(arrayList);
             endTime = System.nanoTime();
         }

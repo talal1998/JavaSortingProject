@@ -10,7 +10,7 @@ public class View {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type 1 to generate a random Array or 2 to generate a random ArrayList: ");
         setListChoice(scanner.nextInt());
-        System.out.println("Type 1 for BubbleSort and 2 for QuickSort: ");
+        System.out.println("Type 1 for BubbleSort, 2 for QuickSort or 3 for Binary Tree Sort: ");
         setSortChoice(scanner.nextInt());
     }
 
