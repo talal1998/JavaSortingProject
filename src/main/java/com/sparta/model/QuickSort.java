@@ -2,7 +2,7 @@ package com.sparta.model;
 
 import java.util.ArrayList;
 
-public class QuickSort implements Sorter{
+public class QuickSort implements Sorter {
     public int partition(int[] array, int low, int high) {
         int pivot = array[high];
         int i = (low - 1);
