@@ -3,7 +3,7 @@ package com.sparta.model;
 import java.util.ArrayList;
 
 public class BubbleSort implements Sorter {
-    public int[] bubbleSort(int[] array) {
+    private int[] bubbleSort(int[] array) {
         int length = array.length;
 
         for (int i = 0; i < length; i++) {
@@ -18,7 +18,7 @@ public class BubbleSort implements Sorter {
         return array;
     }
 
-    public ArrayList<Integer> bubbleSort(ArrayList<Integer> arrayList) {
+    private ArrayList<Integer> bubbleSort(ArrayList<Integer> arrayList) {
         int size = arrayList.size();
 
         for (int i = 0; i < size; i++) {

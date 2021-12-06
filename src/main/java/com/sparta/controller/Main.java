@@ -10,21 +10,19 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
-    public static Sorter sorter;
-    public static long startTime = 0;
-    public static long endTime = 0;
-    public static final int CHOICE_ONE = 1;
-    public static final int CHOICE_TWO = 2;
-    public static final int CHOICE_THREE = 3;
+    private static Sorter sorter;
+    private static long startTime = 0;
+    private static long endTime = 0;
+    private static final int CHOICE_ONE = 1;
+    private static final int CHOICE_TWO = 2;
+    private static final int CHOICE_THREE = 3;
+    private static int listChoice;
+    private static int sortChoice;
 
     public static void main(String[] args) {
         int[] array = randomArray();
         ArrayList<Integer> arrayList = randomArrayList();
-        View view = new View();
-
-        view.userInput();
-        int listChoice = view.getListChoice();
-        int sortChoice = view.getSortChoice();
+        createView();
 
         if (listChoice == CHOICE_ONE) {
             arrayOutput(array, sortChoice);
@@ -33,7 +31,7 @@ public class Main {
         }
     }
 
-    public static void arrayOutput(int[] array, int sortChoice) {
+    private static void arrayOutput(int[] array, int sortChoice) {
         System.out.println("Unsorted array: " + Arrays.toString(array));
 
         if (sortChoice == CHOICE_ONE) {
@@ -59,7 +57,7 @@ public class Main {
         System.out.println("Time taken: " +  (endTime - startTime) + " nano-seconds.");
     }
 
-    public static void arrayListOutput(ArrayList<Integer> arrayList, int sortChoice) {
+    private static void arrayListOutput(ArrayList<Integer> arrayList, int sortChoice) {
         System.out.println("Unsorted ArrayList: " + arrayList);
 
         if (sortChoice == CHOICE_ONE) {
@@ -86,7 +84,7 @@ public class Main {
 
     }
 
-    public static int[] randomArray(){
+    private static int[] randomArray(){
         Random rd = new Random();
         int[] array = new int[100];
         for (int i = 0; i < array.length; i++) {
@@ -95,13 +93,20 @@ public class Main {
         return array;
     }
 
-    public static ArrayList<Integer> randomArrayList() {
+    private static ArrayList<Integer> randomArrayList() {
         Random rd = new Random();
         ArrayList<Integer> arrayList = new ArrayList<>(100);
         for (int i = 0; i < 100; i++) {
             arrayList.add(i, rd.nextInt(1000));
         }
         return arrayList;
+    }
+
+    private static void createView() {
+        View view = new View();
+        view.userInput();
+        listChoice = view.getListChoice();
+        sortChoice = view.getSortChoice();
     }
 
 }

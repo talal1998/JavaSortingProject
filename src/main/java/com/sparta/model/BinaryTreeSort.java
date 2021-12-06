@@ -4,30 +4,30 @@ import java.util.ArrayList;
 
 public class BinaryTreeSort implements Sorter {
 
-    class Node {
-        int key;
-        Node left;
-        Node right;
+    private class Node {
+        private int key;
+        private Node left;
+        private Node right;
 
         public Node(int item){
             key = item;
-            left = right = null;
+            left = null;
+            right = null;
         }
     }
 
-    Node root;
-    int counter;
-
+    private Node root;
+    private int counter;
 
     public BinaryTreeSort() {
         root = null;
     }
 
-    public void insert(int key) {
+    private void insert(int key) {
         root = insertRec(root, key);
     }
 
-    public Node insertRec(Node root, int key) {
+    private Node insertRec(Node root, int key) {
 
         if (root == null) {
             root = new Node(key);
@@ -42,7 +42,7 @@ public class BinaryTreeSort implements Sorter {
         return root;
     }
 
-    public void inOrderRec(Node root, int[] array) {
+    private void inOrderRec(Node root, int[] array) {
         if (root != null) {
             inOrderRec(root.left, array);
             array[counter] = root.key;
@@ -51,7 +51,7 @@ public class BinaryTreeSort implements Sorter {
         }
     }
 
-    public void inOrderRec(Node root, ArrayList<Integer> arrayList) {
+    private void inOrderRec(Node root, ArrayList<Integer> arrayList) {
         if (root != null) {
             inOrderRec(root.left, arrayList);
             arrayList.set(counter, root.key);
@@ -60,19 +60,19 @@ public class BinaryTreeSort implements Sorter {
         }
     }
 
-    public void treeInsert(ArrayList<Integer> arrayList) {
+    private void treeInsert(ArrayList<Integer> arrayList) {
         for(int i = 0; i < arrayList.size(); i++) {
             insert(arrayList.get(i));
         }
     }
 
-    public void treeInsert(int array[]) {
+    private void treeInsert(int array[]) {
         for(int i = 0; i < array.length; i++) {
             insert(array[i]);
         }
     }
 
-    public int[] treeSort(int[] array) {
+    private int[] treeSort(int[] array) {
         counter = 0;
         root = null;
         treeInsert(array);
@@ -80,7 +80,7 @@ public class BinaryTreeSort implements Sorter {
         return array;
     }
 
-    public ArrayList<Integer> treeSort(ArrayList<Integer> arrayList) {
+    private ArrayList<Integer> treeSort(ArrayList<Integer> arrayList) {
         counter = 0;
         root = null;
         treeInsert(arrayList);

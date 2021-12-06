@@ -3,7 +3,7 @@ package com.sparta.model;
 import java.util.ArrayList;
 
 public class QuickSort implements Sorter {
-    public int partition(int[] array, int low, int high) {
+    private int partition(int[] array, int low, int high) {
         int pivot = array[high];
         int i = (low - 1);
 
@@ -21,7 +21,7 @@ public class QuickSort implements Sorter {
         return (i + 1);
     }
 
-    public int[] quickSort(int[] array, int low, int high) {
+    private int[] quickSort(int[] array, int low, int high) {
         if (low < high) {
             int pi = partition(array, low, high);
             quickSort(array, low, pi - 1);
@@ -30,7 +30,7 @@ public class QuickSort implements Sorter {
         return array;
     }
 
-    public int partition(ArrayList<Integer> arrayList, int low, int high) {
+    private int partition(ArrayList<Integer> arrayList, int low, int high) {
         int pivot = arrayList.get(high);
         int i = low - 1;
 
@@ -48,7 +48,7 @@ public class QuickSort implements Sorter {
         return (i + 1);
     }
 
-    public ArrayList<Integer> quickSort(ArrayList<Integer> arrayList, int low, int high) {
+    private ArrayList<Integer> quickSort(ArrayList<Integer> arrayList, int low, int high) {
         if (low < high) {
             int pi = partition(arrayList, low, high);
             quickSort(arrayList, low, pi - 1);

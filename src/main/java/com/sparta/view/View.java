@@ -11,7 +11,6 @@ public class View {
 
 
     public void userInput() {
-
         while(listChoiceValid) {
             try {
                 System.out.println("Type 1 to generate a random Array or 2 to generate a random ArrayList: ");
