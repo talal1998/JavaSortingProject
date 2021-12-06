@@ -34,17 +34,7 @@ public class Main {
 
     private static void arrayOutput(int[] array, int sortChoice) {
         System.out.println("Unsorted array: " + Arrays.toString(array));
-
-        if (sortChoice == CHOICE_ONE) {
-            System.out.println("Bubble Sort Chosen");
-            sorter = new BubbleSort();
-        } else if (sortChoice == CHOICE_TWO) {
-            System.out.println("Quick Sort chosen...");
-            sorter = new QuickSort();
-        } else if (sortChoice == CHOICE_THREE) {
-            System.out.println("Binary Tree Sort chosen...");
-            sorter = new BinaryTreeSort();
-        }
+        algorithmSelector(sortChoice);
 
         startTime = System.nanoTime();
         sorter.sort(array);
@@ -56,17 +46,7 @@ public class Main {
 
     private static void arrayListOutput(ArrayList<Integer> arrayList, int sortChoice) {
         System.out.println("Unsorted ArrayList: " + arrayList);
-
-        if (sortChoice == CHOICE_ONE) {
-            System.out.println("Bubble Sort Chosen");
-            sorter = new BubbleSort();
-        } else if (sortChoice == CHOICE_TWO) {
-            System.out.println("Quick Sort chosen...");
-            sorter = new QuickSort();
-        } else if (sortChoice == CHOICE_THREE) {
-            System.out.println("Binary Tree Sort chosen...");
-            sorter = new BinaryTreeSort();
-        }
+        algorithmSelector(sortChoice);
 
         startTime = System.nanoTime();
         sorter.sort(arrayList);
@@ -74,7 +54,23 @@ public class Main {
 
         System.out.println("Sorted ArrayList: " + arrayList);
         System.out.println("Time taken: " +  (endTime - startTime) + " nano-seconds.");
+    }
 
+    private static void algorithmSelector(int sortChoice) {
+        switch (sortChoice) {
+            case CHOICE_ONE -> {
+                System.out.println("Bubble Sort Chosen");
+                sorter = new BubbleSort();
+            }
+            case CHOICE_TWO -> {
+                System.out.println("Quick Sort chosen...");
+                sorter = new QuickSort();
+            }
+            case CHOICE_THREE -> {
+                System.out.println("Binary Tree Sort chosen...");
+                sorter = new BinaryTreeSort();
+            }
+        }
     }
 
     private static int[] randomArray(){
