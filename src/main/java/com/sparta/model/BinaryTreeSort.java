@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class BinaryTreeSort implements Sorter {
 
-    private class Node {
+    class Node {
         int key;
         Node left;
         Node right;
@@ -16,6 +16,8 @@ public class BinaryTreeSort implements Sorter {
     }
 
     Node root;
+    int counter;
+
 
     BinaryTreeSort() {
         root = null;
@@ -25,7 +27,7 @@ public class BinaryTreeSort implements Sorter {
         root = insertRec(root, key);
     }
 
-    private Node insertRec(Node root, int key) {
+    public Node insertRec(Node root, int key) {
 
         if (root == null) {
             root = new Node(key);
@@ -34,35 +36,47 @@ public class BinaryTreeSort implements Sorter {
 
         if (key < root.key) {
             root.left = insertRec(root.left, key);
-        } else if (key > root.key){
+        } else if (key >= root.key){
             root.right = insertRec(root.right, key);
         }
         return root;
     }
 
-    public ArrayList<Integer> treeSort(ArrayList<Integer> arrayList) {
+    public void inOrderRec(Node root, int[] array) {
+        if (root != null) {
+            inOrderRec(root.left, array);
+            array[counter] = root.key;
+            counter++;
+            inOrderRec(root.right, array);
+        }
+    }
+
+    public void treeInsert(ArrayList<Integer> arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.add(i);
         }
-
-        return arrayList;
     }
 
-    public int[] treeSort(int array[]) {
+    public void treeInsert(int array[]) {
         for(int i = 0; i < array.length; i++) {
             insert(array[i]);
         }
+    }
+
+    public int[] treeSort(int[] array) {
+        treeInsert(array);
+        inOrderRec(root, array);
         return array;
     }
 
     @Override
     public int[] sort(int[] array) {
-        return treeSort(array);
+        return null;
     }
 
     @Override
     public ArrayList<Integer> sort(ArrayList<Integer> arrayList) {
-        return treeSort(arrayList);
+        return null;
     }
 
 }
